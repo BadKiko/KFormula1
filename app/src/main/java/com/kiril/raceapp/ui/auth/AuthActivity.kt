@@ -1,12 +1,14 @@
 package com.kiril.raceapp.ui.auth
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
-import com.kiril.raceapp.MainActivity
+import com.kiril.raceapp.ui.main.MainActivity
 import com.kiril.raceapp.R
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.jan.supabase.SupabaseClient
@@ -35,7 +37,7 @@ class AuthActivity : AppCompatActivity() {
         registerButton = findViewById(R.id.register_button)
 
         loginButton.setOnClickListener {
-            login()
+            login(this)
         }
 
         registerButton.setOnClickListener {
@@ -44,7 +46,7 @@ class AuthActivity : AppCompatActivity() {
         }
     }
 
-    private fun login() {
+    private fun login(context: Context) {
         lifecycleScope.launch {
             try {
                 val email = emailInput.text.toString()
@@ -59,7 +61,7 @@ class AuthActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             } catch (e: Exception) {
-                // Handle login failure
+                Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -61,6 +61,8 @@ dependencies {
 
     // Dagger Hilt
     implementation("com.google.dagger:hilt-android:2.46")
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     kapt("com.google.dagger:hilt-android-compiler:2.46")
 
     implementation(platform("io.github.jan-tennert.supabase:bom:2.4.1"))
