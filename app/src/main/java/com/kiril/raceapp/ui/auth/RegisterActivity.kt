@@ -1,11 +1,13 @@
 package com.kiril.raceapp.ui.auth
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.button.MaterialButton
 import com.kiril.raceapp.R
+import com.kiril.raceapp.ui.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.gotrue.auth
@@ -45,5 +47,9 @@ class RegisterActivity : AppCompatActivity() {
                 this.password = password
             }
         }
+
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

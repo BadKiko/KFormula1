@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RaceAppXml</string>
+    <string name="upcoming_races">Upcoming Races</string>
+    <string name="past_races">Past Races</string>
 </resources>

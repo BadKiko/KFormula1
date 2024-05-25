@@ -5,7 +5,8 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class RaceResponse(
-    @Json(name = "MRData")
-    val mRData: MRData
+data class RaceTable(
+    @Json(name = "Races")
+    val races: List<Race>,
+    val season: String
 )
