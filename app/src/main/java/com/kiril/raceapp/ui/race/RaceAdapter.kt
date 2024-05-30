@@ -1,3 +1,6 @@
+package com.kiril.raceapp.ui.race
+
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,21 +22,22 @@ class RaceAdapter : ListAdapter<Race, RaceAdapter.RaceViewHolder>(RaceDiffCallba
     override fun onBindViewHolder(holder: RaceViewHolder, position: Int) {
         val race = getItem(position)
 
-        /*holder.itemView.setOnClickListener {
+        holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, RaceDetailActivity::class.java).apply {
                 putExtra("season", race.season)
                 putExtra("round", race.round)
+                putExtra("name", race.raceName)
             }
             context.startActivity(intent)
-        }*/
+        }
 
         holder.bind(race)
     }
 
     class RaceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val raceNameTextView: TextView = itemView.findViewById(R.id.race_name)
-        private val raceDateTextView: TextView = itemView.findViewById(R.id.race_date)
+        private val raceNameTextView: TextView = itemView.findViewById(R.id.driver_name)
+        private val raceDateTextView: TextView = itemView.findViewById(R.id.driver_points)
         private val raceLocationTextView: TextView = itemView.findViewById(R.id.race_location)
 
         fun bind(race: Race) {

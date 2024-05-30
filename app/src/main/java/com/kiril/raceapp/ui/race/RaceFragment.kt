@@ -1,6 +1,5 @@
-package com.kiril.raceapp.ui.main
+package com.kiril.raceapp.ui.race
 
-import RaceAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

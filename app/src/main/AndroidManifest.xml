@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".RaceAppApplication"
         android:allowBackup="true"
@@ -15,10 +16,11 @@
         android:theme="@style/RaceTheme"
         tools:targetApi="31">
         <activity
+            android:name=".ui.race.RaceDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.main.MainActivity"
-            android:exported="true">
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name=".ui.auth.AuthActivity"
             android:exported="true">
@@ -28,11 +30,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.auth.RegisterActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

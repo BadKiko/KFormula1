@@ -1,7 +1,8 @@
 package com.kiril.raceapp.di
 
-import com.kiril.raceapp.data.race.network.ErgastApi
+import com.kiril.raceapp.data.network.ErgastApi
 import com.kiril.raceapp.data.race.repository.RaceRepository
+import com.kiril.raceapp.data.race_detail.repository.RaceDetailsRepository
 import com.skydoves.sandwich.retrofit.adapters.ApiResponseCallAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -20,7 +21,7 @@ object AppModule {
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl("https://ergast.com/api/")
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create().asLenient())
             .addCallAdapterFactory(ApiResponseCallAdapterFactory.create())
             .build()
     }
@@ -35,5 +36,11 @@ object AppModule {
     @Singleton
     fun provideRaceRepository(ergastApi: ErgastApi): RaceRepository {
         return RaceRepository(ergastApi)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRaceDetailsRepository(ergastApi: ErgastApi): RaceDetailsRepository {
+        return RaceDetailsRepository(ergastApi)
     }
 }

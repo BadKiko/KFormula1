@@ -1,4 +1,4 @@
-package com.kiril.raceapp.ui.main
+package com.kiril.raceapp.ui.race
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,7 +10,6 @@ import com.skydoves.sandwich.onSuccess
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
 @HiltViewModel
@@ -23,7 +22,7 @@ class RaceViewModel @Inject constructor(
 
     private val currentDate: LocalDate = LocalDate.now()
 
-    fun fetchNextRace() {
+    fun fetchPastRaces() {
         viewModelScope.launch {
             val response = raceRepository.getAllRaces()
             response.onSuccess {
@@ -32,7 +31,7 @@ class RaceViewModel @Inject constructor(
         }
     }
 
-    fun fetchPastRaces() {
+    fun fetchNextRace() {
         viewModelScope.launch {
             val response = raceRepository.getAllRaces()
             response.onSuccess {

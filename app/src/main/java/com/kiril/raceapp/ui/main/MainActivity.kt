@@ -1,21 +1,19 @@
 package com.kiril.raceapp.ui.main
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kiril.raceapp.R
-import com.kiril.raceapp.ui.auth.AuthActivity
+import com.kiril.raceapp.ui.account.AccountFragment
+import com.kiril.raceapp.ui.race.RaceFragment
+import com.kiril.raceapp.ui.standings.StandingsFragment
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.jan.supabase.SupabaseClient
-import io.github.jan.supabase.gotrue.auth
-import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -38,12 +36,17 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
-                    loadFragment(HomeFragment())
+                    loadFragment(StandingsFragment())
                     true
                 }
 
                 R.id.nav_race -> {
                     loadFragment(RaceFragment())
+                    true
+                }
+
+                R.id.nac_account -> {
+                    loadFragment(AccountFragment())
                     true
                 }
 
